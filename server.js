@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser'); 
-const PORT = process.env.TWILIO_PORT || "http://localhost:3001"
+const PORT = process.env.PORT || "http://localhost:3001"
 // const pino = require('express-pino-logger')(); // express-pino-logger and pino-colada - for better server logging
 const app = express();
 app.use(cors())
@@ -61,6 +61,6 @@ app.post('/api/messages', (req, res) => {
   });
 
 
-app.listen(3001, (req, res) =>
+app.listen(PORT, (req, res) =>
   console.log('Express server is running on localhost:3001🥳')
 );
