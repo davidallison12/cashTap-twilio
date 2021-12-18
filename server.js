@@ -34,6 +34,15 @@ app.use(bodyParser.json())
 //   
 //   .then(message => console.log(message.sid));
 
+
+
+app.get("/", function(req, res) {
+  //when we get an http get request to the root/homepage
+  res.send("Hello World");
+});
+
+
+
 app.post('/api/messages', (req, res) => {
     res.header('Content-Type', 'application/json');
     client.messages
@@ -52,6 +61,6 @@ app.post('/api/messages', (req, res) => {
   });
 
 
-app.listen(PORT, () =>
+app.listen(PORT, (req, res) =>
   console.log('Express server is running on localhost:3001🥳')
 );
