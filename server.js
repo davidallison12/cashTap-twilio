@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors')
-const bodyParser = require('body-parser'); 
+import express from 'express';
+import cors from 'cors';
+import { urlencoded, json } from 'body-parser'; 
 const PORT = process.env.TWILIO_PORT || "http://localhost:3001"
 // const pino = require('express-pino-logger')(); // express-pino-logger and pino-colada - for better server logging
 const app = express();
@@ -12,8 +12,8 @@ const authToken = process.env.TWILIO_AUTH_TOKEN
 const twilioPhone = process.env.TWILIO_PHONE_NUMBER
 const client = require('twilio')(accountSid, authToken);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json())
+app.use(urlencoded({ extended: false }));
+app.use(json())
 // app.use(pino);
 
 
